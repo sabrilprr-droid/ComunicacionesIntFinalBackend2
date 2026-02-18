@@ -1,4 +1,7 @@
 package com.comunicaciones.comunicacionesInternas.Controlador;
 
-public class CAnuncios {
+
+public class CAnuncios
+{
+
 }

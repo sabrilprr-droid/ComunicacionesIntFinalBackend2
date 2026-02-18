@@ -1,4 +1,13 @@
 package com.comunicaciones.comunicacionesInternas.Repositorio;
 
-public interface IAnuncios {
+import com.comunicaciones.comunicacionesInternas.Modelo.MAnuncios;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface IAnuncios extends JpaRepository<MAnuncios, Integer>
+{
+    List<MAnuncios>findBytitulo(String titulo);
 }

@@ -1,4 +1,11 @@
 package com.comunicaciones.comunicacionesInternas.Repositorio;
 
-public class IColaboradormensaje {
+import com.comunicaciones.comunicacionesInternas.Modelo.MColaboradormensaje;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface IColaboradormensaje extends JpaRepository<MColaboradormensaje, Integer>
+{
+
 }

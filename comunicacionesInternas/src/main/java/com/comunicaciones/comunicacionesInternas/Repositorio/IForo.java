@@ -1,4 +1,13 @@
 package com.comunicaciones.comunicacionesInternas.Repositorio;
 
-public interface IForo {
+import com.comunicaciones.comunicacionesInternas.Modelo.MForo;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface IForo extends JpaRepository<MForo, Integer>
+{
+    List<MForo>findBytitulo(String titulo);
 }

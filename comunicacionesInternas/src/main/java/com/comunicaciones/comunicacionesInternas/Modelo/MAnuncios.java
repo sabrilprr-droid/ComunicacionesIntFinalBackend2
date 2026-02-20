@@ -1,9 +1,9 @@
 package com.comunicaciones.comunicacionesInternas.Modelo;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
+
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "anuncios")
@@ -20,7 +20,7 @@ public class MAnuncios
     private String contenido;
 
     @Column(length = 15,nullable = false)
-    private String fechapublicacion;
+    private LocalDate fechapublicacion;
 
     @Column(length = 10,nullable = false)
     private String activo;
@@ -28,8 +28,13 @@ public class MAnuncios
     @Column(nullable = false)
     private String idcolaborador;
 
+    @ManyToOne
+    @JoinColumn(name = "pkColaborador",referencedColumnName = "idcolaborador")
+    @JsonBackReference
+    MColaborador mColaborador;
+
     //contructor
-    public MAnuncios(String codanuncio, String titulo, String contenido, String fechapublicacion, String activo, String idcolaborador)
+    public MAnuncios(String codanuncio, String titulo, String contenido, LocalDate fechapublicacion, String activo, String idcolaborador)
     {
         this.codanuncio = codanuncio;
         this.titulo = titulo;
@@ -75,12 +80,12 @@ public class MAnuncios
         this.contenido = contenido;
     }
 
-    public String getFechapublicacion()
+    public LocalDate getFechapublicacion()
     {
         return fechapublicacion;
     }
 
-    public void setFechapublicacion(String fechapublicacion)
+    public void setFechapublicacion(LocalDate fechapublicacion)
     {
         this.fechapublicacion = fechapublicacion;
     }

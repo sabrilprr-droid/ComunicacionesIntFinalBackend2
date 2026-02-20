@@ -1,9 +1,9 @@
 package com.comunicaciones.comunicacionesInternas.Modelo;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "colaborador")
@@ -35,6 +35,18 @@ private String fecharegistro;
 private  String activo;
 
 //Relaciones:
+
+    @OneToMany(mappedBy = "MColaborador")
+    @JsonManagedReference
+    List<MAnuncios> mAnuncios;
+
+    @OneToMany(mappedBy = "MColaborador")
+    @JsonManagedReference
+    List<MForo>mForos;
+
+    @OneToMany(mappedBy = "MColaborador")
+    @JsonManagedReference
+    List<MMensajesDirectos>mMensajesDirectos;
 
 //Constructores
 

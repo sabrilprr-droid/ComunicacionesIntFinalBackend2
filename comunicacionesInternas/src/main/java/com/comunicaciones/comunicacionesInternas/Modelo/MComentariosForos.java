@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "comentariosforos")
 public class MComentariosForos
@@ -23,13 +25,13 @@ public class MComentariosForos
     private String contenido;
 
     @Column(length = 15, nullable = false)
-    private String fechapublicaion;
+    private LocalDate fechapublicaion;
 
     @Column(length = 10,nullable = false)
     private String activo;
 
     //Constructor
-    public MComentariosForos(String idcomentario, String idforo, String idcolaborador, String contenido, String fechapublicaion, String activo)
+    public MComentariosForos(String idcomentario, String idforo, String idcolaborador, String contenido, LocalDate fechapublicaion, String activo)
     {
         this.idcomentario = idcomentario;
         this.idforo = idforo;
@@ -87,12 +89,12 @@ public class MComentariosForos
         this.contenido = contenido;
     }
 
-    public String getFechapublicaion()
+    public LocalDate getFechapublicaion()
     {
         return fechapublicaion;
     }
 
-    public void setFechapublicaion(String fechapublicaion)
+    public void setFechapublicaion(LocalDate fechapublicaion)
     {
         this.fechapublicaion = fechapublicaion;
     }

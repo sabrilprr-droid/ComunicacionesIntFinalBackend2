@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "colaboradormensaje")
 public class MColaboradormensaje
@@ -20,14 +22,14 @@ public class MColaboradormensaje
     private String codmensaje;
 
     @Column(length = 15,nullable = false)
-    private String fechamensaje;
+    private LocalDate fechamensaje;
 
     @Column(length = 10, nullable = false)
     private String activo;
 
     //Constructor
 
-    public MColaboradormensaje(String consecutivo, String idcolaborador, String codmensaje, String fechamensaje, String activo)
+    public MColaboradormensaje(String consecutivo, String idcolaborador, String codmensaje, LocalDate fechamensaje, String activo)
     {
         this.consecutivo = consecutivo;
         this.idcolaborador = idcolaborador;
@@ -74,12 +76,12 @@ public class MColaboradormensaje
         this.codmensaje = codmensaje;
     }
 
-    public String getFechamensaje()
+    public LocalDate getFechamensaje()
     {
         return fechamensaje;
     }
 
-    public void setFechamensaje(String fechamensaje)
+    public void setFechamensaje(LocalDate fechamensaje)
     {
         this.fechamensaje = fechamensaje;
     }

@@ -1,9 +1,9 @@
 package com.comunicaciones.comunicacionesInternas.Modelo;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
+
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "mensajesdirectos")
@@ -20,7 +20,7 @@ public class MMensajesDirectos
     private String contenidomensaje;
 
     @Column(length = 15,nullable = false)
-    private String fechacreacion;
+    private LocalDate fechacreacion;
 
     @Column(length = 10,nullable = false)
     private String activo;
@@ -28,9 +28,14 @@ public class MMensajesDirectos
     @Column(nullable = false)
     private String idcolaborador;
 
+    @ManyToOne
+    @JoinColumn(name = "pkColaborador",referencedColumnName = "idcolaborador")
+    @JsonBackReference
+    MColaborador mColaborador;
+
     //Constructor
 
-    public MMensajesDirectos(String codmensaje, String titulomensaje, String contenidomensaje, String fechacreacion, String activo, String idcolaborador)
+    public MMensajesDirectos(String codmensaje, String titulomensaje, String contenidomensaje, LocalDate fechacreacion, String activo, String idcolaborador)
     {
         this.codmensaje = codmensaje;
         this.titulomensaje = titulomensaje;
@@ -78,12 +83,12 @@ public class MMensajesDirectos
         this.contenidomensaje = contenidomensaje;
     }
 
-    public String getFechacreacion()
+    public LocalDate getFechacreacion()
     {
         return fechacreacion;
     }
 
-    public void setFechacreacion(String fechacreacion)
+    public void setFechacreacion(LocalDate fechacreacion)
     {
         this.fechacreacion = fechacreacion;
     }

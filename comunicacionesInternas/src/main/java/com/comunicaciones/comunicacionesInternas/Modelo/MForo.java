@@ -1,9 +1,9 @@
 package com.comunicaciones.comunicacionesInternas.Modelo;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
+
+import java.time.LocalDate;
 
 @Entity
 @Table
@@ -20,7 +20,7 @@ public class MForo
     private String descripcion;
 
     @Column(length = 15,nullable = false)
-    private String fechacreacion;
+    private LocalDate fechacreacion;
 
     @Column(length = 10,nullable = false)
     private String activo;
@@ -28,8 +28,13 @@ public class MForo
     @Column(nullable = false)
     private String idcolaborador;
 
+    @ManyToOne
+    @JoinColumn(name = "pkColaborador",referencedColumnName = "idcolaborador")
+    @JsonBackReference
+    MColaborador mColaborador;
+
     //Constructor
-    public MForo(String idforo, String titulo, String descripcion, String fechacreacion, String activo, String idcolaborador)
+    public MForo(String idforo, String titulo, String descripcion, LocalDate fechacreacion, String activo, String idcolaborador)
     {
         this.idforo = idforo;
         this.titulo = titulo;
@@ -75,12 +80,12 @@ public class MForo
         this.descripcion = descripcion;
     }
 
-    public String getFechacreacion()
+    public LocalDate getFechacreacion()
     {
         return fechacreacion;
     }
 
-    public void setFechacreacion(String fechacreacion)
+    public void setFechacreacion(LocalDate fechacreacion)
     {
         this.fechacreacion = fechacreacion;
     }

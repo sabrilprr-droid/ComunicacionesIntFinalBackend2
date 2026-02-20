@@ -9,6 +9,10 @@ import jakarta.persistence.Table;
 @Table(name = "colaboradoranuncio")
 public class MColaboradoranuncio
 {
+    @Id
+    @Column(length = 20,nullable = false)
+    private String consecutivo;
+
     @Column(nullable = false)
     private String idcolaborador;
 
@@ -22,9 +26,9 @@ public class MColaboradoranuncio
     private String leido;
 
     //Constructor
-
-    public MColaboradoranuncio(String idcolaborador, String codanuncio, String fechalectura, String leido)
+    public MColaboradoranuncio(String consecutivo, String idcolaborador, String codanuncio, String fechalectura, String leido)
     {
+        this.consecutivo = consecutivo;
         this.idcolaborador = idcolaborador;
         this.codanuncio = codanuncio;
         this.fechalectura = fechalectura;
@@ -39,7 +43,17 @@ public class MColaboradoranuncio
 
     //Get and Set
 
-    public String  getIdcolaborador()
+    public String getConsecutivo()
+    {
+        return consecutivo;
+    }
+
+    public void setConsecutivo(String consecutivo)
+    {
+        this.consecutivo = consecutivo;
+    }
+
+    public String getIdcolaborador()
     {
         return idcolaborador;
     }

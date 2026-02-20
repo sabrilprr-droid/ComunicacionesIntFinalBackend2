@@ -11,7 +11,7 @@ public class MComentariosForos
 {
     @Id
     @Column(length = 20,nullable = false)
-    private String idcomntario;
+    private String idcomentario;
 
     @Column(nullable = false)
     private String idforo;
@@ -23,35 +23,38 @@ public class MComentariosForos
     private String contenido;
 
     @Column(length = 15, nullable = false)
-    private String fechapublicaión;
+    private String fechapublicaion;
+
+    @Column(length = 10,nullable = false)
+    private String activo;
 
     //Constructor
-
-    public MComentariosForos(String idcomntario, String idforo, String idcolaborador, String contenido, String fechapublicaión)
+    public MComentariosForos(String idcomentario, String idforo, String idcolaborador, String contenido, String fechapublicaion, String activo)
     {
-        this.idcomntario = idcomntario;
+        this.idcomentario = idcomentario;
         this.idforo = idforo;
         this.idcolaborador = idcolaborador;
         this.contenido = contenido;
-        this.fechapublicaión = fechapublicaión;
+        this.fechapublicaion = fechapublicaion;
+        this.activo = activo;
     }
 
     //Constructor vacio
-
     public MComentariosForos()
     {
     }
 
     //Get and set
 
-    public String getIdcomntario()
+
+    public String getIdcomentario()
     {
-        return idcomntario;
+        return idcomentario;
     }
 
-    public void setIdcomntario(String idcomntario)
+    public void setIdcomntario(String idcomentario)
     {
-        this.idcomntario = idcomntario;
+        this.idcomentario = idcomentario;
     }
 
     public String getIdforo()
@@ -84,13 +87,23 @@ public class MComentariosForos
         this.contenido = contenido;
     }
 
-    public String getFechapublicaión()
+    public String getFechapublicaion()
     {
-        return fechapublicaión;
+        return fechapublicaion;
     }
 
-    public void setFechapublicaión(String fechapublicaión)
+    public void setFechapublicaion(String fechapublicaion)
     {
-        this.fechapublicaión = fechapublicaión;
+        this.fechapublicaion = fechapublicaion;
+    }
+
+    public String getActivo()
+    {
+        return activo;
+    }
+
+    public void setActivo(String activo)
+    {
+        this.activo = activo;
     }
 }

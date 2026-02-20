@@ -22,25 +22,29 @@ public class MMensajesDirectos
     @Column(length = 15,nullable = false)
     private String fechacreacion;
 
+    @Column(length = 10,nullable = false)
+    private String activo;
+
     @Column(nullable = false)
     private String idcolaborador;
 
     //Constructor
 
-    public MMensajesDirectos(String codmensaje, String titulomensaje, String contenidomensaje, String fechacreacion, String idcolaborador)
+    public MMensajesDirectos(String codmensaje, String titulomensaje, String contenidomensaje, String fechacreacion, String activo, String idcolaborador)
     {
         this.codmensaje = codmensaje;
         this.titulomensaje = titulomensaje;
         this.contenidomensaje = contenidomensaje;
         this.fechacreacion = fechacreacion;
+        this.activo = activo;
         this.idcolaborador = idcolaborador;
     }
 
     //Constructor vacio
-
     public MMensajesDirectos()
     {
     }
+
 
     //Get and set
 
@@ -54,7 +58,8 @@ public class MMensajesDirectos
         this.codmensaje = codmensaje;
     }
 
-    public String getTitulomensaje() {
+    public String getTitulomensaje()
+    {
         return titulomensaje;
     }
 
@@ -68,7 +73,8 @@ public class MMensajesDirectos
         return contenidomensaje;
     }
 
-    public void setContenidomensaje(String contenidomensaje) {
+    public void setContenidomensaje(String contenidomensaje)
+    {
         this.contenidomensaje = contenidomensaje;
     }
 
@@ -80,6 +86,16 @@ public class MMensajesDirectos
     public void setFechacreacion(String fechacreacion)
     {
         this.fechacreacion = fechacreacion;
+    }
+
+    public String getActivo()
+    {
+        return activo;
+    }
+
+    public void setActivo(String activo)
+    {
+        this.activo = activo;
     }
 
     public String getIdcolaborador()

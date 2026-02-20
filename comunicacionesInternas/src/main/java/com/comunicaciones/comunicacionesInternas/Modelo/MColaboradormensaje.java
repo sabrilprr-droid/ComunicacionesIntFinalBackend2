@@ -2,12 +2,17 @@ package com.comunicaciones.comunicacionesInternas.Modelo;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "colaboradormensaje")
 public class MColaboradormensaje
 {
+    @Id
+    @Column(length = 20,nullable = false)
+    private String consecutivo;
+
     @Column(nullable = false)
     private String idcolaborador;
 
@@ -21,8 +26,10 @@ public class MColaboradormensaje
     private String activo;
 
     //Constructor
-    public MColaboradormensaje(String idcolaborador, String codmensaje, String fechamensaje, String activo)
+
+    public MColaboradormensaje(String consecutivo, String idcolaborador, String codmensaje, String fechamensaje, String activo)
     {
+        this.consecutivo = consecutivo;
         this.idcolaborador = idcolaborador;
         this.codmensaje = codmensaje;
         this.fechamensaje = fechamensaje;
@@ -31,12 +38,21 @@ public class MColaboradormensaje
 
     //Cosntructor vacio
 
-
     public MColaboradormensaje()
     {
     }
 
     //Get and set
+
+    public String getConsecutivo()
+    {
+        return consecutivo;
+    }
+
+    public void setConsecutivo(String consecutivo)
+    {
+        this.consecutivo = consecutivo;
+    }
 
     public String getIdcolaborador()
     {

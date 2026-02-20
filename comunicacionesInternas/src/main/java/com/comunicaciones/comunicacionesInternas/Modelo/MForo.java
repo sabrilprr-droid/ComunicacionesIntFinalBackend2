@@ -22,17 +22,20 @@ public class MForo
     @Column(length = 15,nullable = false)
     private String fechacreacion;
 
+    @Column(length = 10,nullable = false)
+    private String activo;
+
     @Column(nullable = false)
     private String idcolaborador;
 
     //Constructor
-
-    public MForo(String idforo, String titulo, String descripcion, String fechacreacion, String idcolaborador)
+    public MForo(String idforo, String titulo, String descripcion, String fechacreacion, String activo, String idcolaborador)
     {
         this.idforo = idforo;
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.fechacreacion = fechacreacion;
+        this.activo = activo;
         this.idcolaborador = idcolaborador;
     }
 
@@ -42,7 +45,6 @@ public class MForo
     }
 
     //Get and set
-
     public String getIdforo()
     {
         return idforo;
@@ -81,6 +83,16 @@ public class MForo
     public void setFechacreacion(String fechacreacion)
     {
         this.fechacreacion = fechacreacion;
+    }
+
+    public String getActivo()
+    {
+        return activo;
+    }
+
+    public void setActivo(String activo)
+    {
+        this.activo = activo;
     }
 
     public String getIdcolaborador()

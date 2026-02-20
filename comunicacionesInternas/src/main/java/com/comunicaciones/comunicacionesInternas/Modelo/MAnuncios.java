@@ -20,30 +20,31 @@ public class MAnuncios
     private String contenido;
 
     @Column(length = 15,nullable = false)
-    private String fechapublicación;
+    private String fechapublicacion;
+
+    @Column(length = 10,nullable = false)
+    private String activo;
 
     @Column(nullable = false)
     private String idcolaborador;
 
     //contructor
-
-    public MAnuncios(String codanuncio, String titulo, String contenido, String fechapublicación, String idcolaborador)
+    public MAnuncios(String codanuncio, String titulo, String contenido, String fechapublicacion, String activo, String idcolaborador)
     {
         this.codanuncio = codanuncio;
         this.titulo = titulo;
         this.contenido = contenido;
-        this.fechapublicación = fechapublicación;
+        this.fechapublicacion = fechapublicacion;
+        this.activo = activo;
         this.idcolaborador = idcolaborador;
     }
 
     //Constructor vacio
-
     public MAnuncios()
     {
     }
 
     //Get and Set
-
     public String getCodanuncio()
     {
         return codanuncio;
@@ -74,14 +75,24 @@ public class MAnuncios
         this.contenido = contenido;
     }
 
-    public String getFechapublicación()
+    public String getFechapublicacion()
     {
-        return fechapublicación;
+        return fechapublicacion;
     }
 
-    public void setFechapublicación(String fechapublicación)
+    public void setFechapublicacion(String fechapublicacion)
     {
-        this.fechapublicación = fechapublicación;
+        this.fechapublicacion = fechapublicacion;
+    }
+
+    public String getActivo()
+    {
+        return activo;
+    }
+
+    public void setActivo(String activo)
+    {
+        this.activo = activo;
     }
 
     public String getIdcolaborador()

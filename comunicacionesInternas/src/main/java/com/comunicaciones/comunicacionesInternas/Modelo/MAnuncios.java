@@ -28,10 +28,6 @@ public class MAnuncios
     @Column(nullable = false)
     private String idcolaborador;
 
-    @ManyToOne
-    @JoinColumn(name = "pkColaborador",referencedColumnName = "idcolaborador")
-    @JsonBackReference
-    MColaborador mColaborador;
 
     //contructor
     public MAnuncios(String codanuncio, String titulo, String contenido, LocalDate fechapublicacion, String activo, String idcolaborador)

@@ -52,7 +52,7 @@ public class CColaborador
     }
 
     //Endpoint consulta individual por identificación
-    @GetMapping
+    @GetMapping("/{idcolaborador}")
     public ResponseEntity<?> consultaindividualid(@PathVariable String idcolaborador)throws Exception
     {
         try
@@ -70,7 +70,7 @@ public class CColaborador
     }
 
     //Endpoint consulta individual por nombre
-    @GetMapping
+    @GetMapping("/nombre/{nombrecolaborador}")
     public ResponseEntity<?> consultaindividualnombre(@PathVariable String nombrecolaborador)throws Exception
     {
         try
@@ -88,7 +88,7 @@ public class CColaborador
     }
 
     //Endpoint modificar
-    @PutMapping
+    @PutMapping("/{idcolaborador}")
     public ResponseEntity<?> modificar(@RequestBody MColaborador mColaborador, @PathVariable String idcolaborador)throws Exception
     {
         try
@@ -106,7 +106,7 @@ public class CColaborador
     }
 
     //Endpoint anular
-    @PutMapping
+    @PutMapping("/anular/{idcolaborador}")
     public ResponseEntity<?> anular(@RequestBody MColaborador mColaborador, @PathVariable String idcolaborador)throws Exception
     {
         try
@@ -124,7 +124,7 @@ public class CColaborador
     }
 
     //Endpoint eliminar
-    @DeleteMapping
+    @DeleteMapping("/{idcolaborador}")
     public ResponseEntity<?> eliminar(@PathVariable String idcolaborador)throws Exception
     {
         try

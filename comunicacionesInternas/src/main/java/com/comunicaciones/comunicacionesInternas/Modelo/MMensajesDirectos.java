@@ -28,11 +28,6 @@ public class MMensajesDirectos
     @Column(nullable = false)
     private String idcolaborador;
 
-    @ManyToOne
-    @JoinColumn(name = "pkColaborador",referencedColumnName = "idcolaborador")
-    @JsonBackReference
-    MColaborador mColaborador;
-
     //Constructor
 
     public MMensajesDirectos(String codmensaje, String titulomensaje, String contenidomensaje, LocalDate fechacreacion, String activo, String idcolaborador)

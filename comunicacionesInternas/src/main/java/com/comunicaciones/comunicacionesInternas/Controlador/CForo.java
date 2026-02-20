@@ -52,7 +52,7 @@ public class CForo
     }
 
     //Endpoint consulta individual por codigo
-    @GetMapping
+    @GetMapping("/{idcolaborador}")
     public ResponseEntity<?>consultaindividualid(@PathVariable String idforo)throws Exception
     {
         try
@@ -70,7 +70,7 @@ public class CForo
     }
 
     //Endpoint consulta individuao por nombre
-    @GetMapping
+    @GetMapping("/burcartitulo/{titulo}")
     public ResponseEntity<?>consultaindividualtitulo(@PathVariable String titulo)throws Exception
     {
         try
@@ -88,7 +88,7 @@ public class CForo
     }
 
     //Endpoint modificar
-    @PutMapping
+    @PutMapping("/{idforo}")
     public ResponseEntity<?> modificar(@RequestBody MForo mForo, @PathVariable String idforo) throws Exception
     {
         try
@@ -106,7 +106,7 @@ public class CForo
     }
 
     //Endpoint anular
-    @PutMapping
+    @PutMapping("/anular/{idforo}")
     public ResponseEntity<?> anular(@RequestBody MForo mForo, @PathVariable String idforo)throws Exception
     {
         try
@@ -124,7 +124,7 @@ public class CForo
     }
 
     //Endpoint eliminar
-    @DeleteMapping
+    @DeleteMapping("/{idforo}")
     public ResponseEntity<?> eliminar(@PathVariable String idforo)throws Exception
     {
         try

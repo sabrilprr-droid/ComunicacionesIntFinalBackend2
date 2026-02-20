@@ -28,11 +28,6 @@ public class MForo
     @Column(nullable = false)
     private String idcolaborador;
 
-    @ManyToOne
-    @JoinColumn(name = "pkColaborador",referencedColumnName = "idcolaborador")
-    @JsonBackReference
-    MColaborador mColaborador;
-
     //Constructor
     public MForo(String idforo, String titulo, String descripcion, LocalDate fechacreacion, String activo, String idcolaborador)
     {

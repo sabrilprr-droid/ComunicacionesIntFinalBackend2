@@ -3,6 +3,7 @@ package com.comunicaciones.comunicacionesInternas.Modelo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -29,28 +30,14 @@ private String correoelectronico;
 private String clave;
 
 @Column(length = 15, nullable = false)
-private String fecharegistro;
+private LocalDate fecharegistro;
 
 @Column(length = 5, nullable = false)
 private  String activo;
 
-//Relaciones:
-
-    @OneToMany(mappedBy = "MColaborador")
-    @JsonManagedReference
-    List<MAnuncios> mAnuncios;
-
-    @OneToMany(mappedBy = "MColaborador")
-    @JsonManagedReference
-    List<MForo>mForos;
-
-    @OneToMany(mappedBy = "MColaborador")
-    @JsonManagedReference
-    List<MMensajesDirectos>mMensajesDirectos;
-
 //Constructores
 
-    public MColaborador(String idcolaborador, String tipocolaborador, String nombrecolaborador, String apellidocolaborador, String correoelectronico, String clave, String fecharegistro, String activo)
+    public MColaborador(String idcolaborador, String tipocolaborador, String nombrecolaborador, String apellidocolaborador, String correoelectronico, String clave, LocalDate fecharegistro, String activo)
     {
         this.idcolaborador = idcolaborador;
         this.tipocolaborador = tipocolaborador;
@@ -129,12 +116,12 @@ private  String activo;
         this.clave = clave;
     }
 
-    public String getFecharegistro()
+    public LocalDate getFecharegistro()
     {
         return fecharegistro;
     }
 
-    public void setFecharegistro(String fecharegistro)
+    public void setFecharegistro(LocalDate fecharegistro)
     {
         this.fecharegistro = fecharegistro;
     }

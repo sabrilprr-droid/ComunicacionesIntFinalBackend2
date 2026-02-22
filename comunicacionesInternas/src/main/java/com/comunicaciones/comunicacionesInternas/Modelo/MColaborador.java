@@ -41,6 +41,7 @@ private LocalDate fecharegistro;
 @Column(length = 5, nullable = false)
 private  String activo;
 
+
     @OneToMany(mappedBy = "mColaborador")
     private List<MForo> mForo;
 
@@ -48,16 +49,17 @@ private  String activo;
     private List<MAnuncios> mAnuncios;
 
     @OneToMany(mappedBy = "mColaborador")
-    private List<MColaboradoranuncio> mColaboradoranuncio;
+    private List<MComentariosForos> mComentariosForos;
 
     @OneToMany(mappedBy = "mColaborador")
-    private List<MComentariosForos> mComentariosForos;
+    private List<MMensajesDirectos> mMensajesDirectos;
 
     @OneToMany(mappedBy = "mColaborador")
     private List<MColaboradormensaje> mColaboradormensaje;
 
     @OneToMany(mappedBy = "mColaborador")
-    private List<MMensajesDirectos> mMensajesDirectos;
+    private List<MColaboradoranuncio> mColaboradoranuncio;
+
 
 
 //Constructores

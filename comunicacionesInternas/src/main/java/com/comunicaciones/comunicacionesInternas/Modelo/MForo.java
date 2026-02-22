@@ -34,13 +34,12 @@ public class MForo {
     private String activo;
 
     @ManyToOne
-    @JoinColumn(name = "pkcolaborador", referencedColumnName = "idcolaborador", nullable = false)
-    @JsonBackReference
-    MColaborador mColaborador;
+    @JoinColumn(name = "pkcolaborador")
+    private MColaborador mColaborador;
 
     @OneToMany(mappedBy = "mForo")
-    @JsonManagedReference
-    List<MComentariosForos> mComentariosForos;
+    private List<MComentariosForos> mComentariosForos;
+
 
     //Constructor
 

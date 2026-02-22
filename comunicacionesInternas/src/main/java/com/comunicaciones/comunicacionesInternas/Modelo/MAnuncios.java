@@ -14,6 +14,7 @@ import java.util.List;
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "codanuncio"
+
 )
 public class MAnuncios
 {
@@ -34,13 +35,11 @@ public class MAnuncios
     private String activo;
 
     @ManyToOne
-    @JoinColumn(name = "pkcolaborador", referencedColumnName = "idcolaborador", nullable = false)
-    @JsonBackReference
-    MColaborador mColaborador;
+    @JoinColumn(name = "pkcolaborador")
+    private MColaborador mColaborador;
 
     @OneToMany(mappedBy = "mAnuncios")
-    @JsonManagedReference
-    List<MColaboradoranuncio> mColaboradoranuncio;
+    private List<MColaboradoranuncio> mColaboradoranuncio;
 
 
     //contructor

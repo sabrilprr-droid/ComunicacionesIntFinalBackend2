@@ -30,14 +30,12 @@ public class MComentariosForos
     private String activo;
 
     @ManyToOne
-    @JoinColumn(name = "pkcolaborador", referencedColumnName = "idcolaborador", nullable = false)
-    @JsonBackReference
-    MColaborador mColaborador;
+    @JoinColumn(name = "pkcolaborador")
+    private MColaborador mColaborador;
 
     @ManyToOne
-    @JoinColumn(name = "pkforo", referencedColumnName = "idforo", nullable = false)
-    @JsonBackReference
-    MForo mForo;
+    @JoinColumn(name = "pkforo")
+    private MForo mForo;
 
     //Constructor
 

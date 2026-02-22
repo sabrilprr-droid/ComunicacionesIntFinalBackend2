@@ -1,12 +1,18 @@
 package com.comunicaciones.comunicacionesInternas.Modelo;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "colaboradoranuncio")
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "consecutivo"
+)
 public class MColaboradoranuncio
 {
     @Id
@@ -23,14 +29,12 @@ public class MColaboradoranuncio
     private String leido;
 
     @ManyToOne
-    @JoinColumn(name = "pkcolaborador", referencedColumnName = "idcolaborador", nullable = false)
-    @JsonBackReference
-    MColaborador mColaborador;
+    @JoinColumn(name = "pkcolaborador")
+    private MColaborador mColaborador;
 
     @ManyToOne
-    @JoinColumn(name = "pkanuncios", referencedColumnName = "codanuncio", nullable = false)
-    @JsonBackReference
-    MAnuncios mAnuncios;
+    @JoinColumn(name = "pkanuncios")
+    private MAnuncios mAnuncios;
 
     //Constructor
 
